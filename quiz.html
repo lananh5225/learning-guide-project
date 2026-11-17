@@ -6,9 +6,10 @@
     <title>Quiz Game - INS2053 Learning Hub</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .options label { display: block; background: #f1f5f9; padding: 12px; border-radius: 6px; margin-bottom: 10px; cursor: pointer; }
+        .options label { display: block; background: #f1f5f9; padding: 12px; border-radius: 6px; margin-bottom: 10px; cursor: pointer; border: 1px solid var(--border-color); }
         .options label:hover { background: #e2e8f0; }
         .btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; margin-top: 15px; }
+        .btn:hover { background: var(--primary-dark); }
         #result { margin-top: 15px; font-weight: bold; font-size: 1.1rem; }
     </style>
 </head>
@@ -39,6 +40,10 @@
         </div>
     </div>
 
+    <footer>
+        <p>&copy; 2026 INS2053 Learning Hub.</p>
+    </footer>
+
     <script>
         function checkAnswer() {
             const selected = document.querySelector('input[name="opt"]:checked');
@@ -57,9 +62,5 @@
             }
         }
     </script>
-
-    <footer>
-        <p>&copy; 2026 INS2053 Learning Hub.</p>
-    </footer>
 </body>
 </html>

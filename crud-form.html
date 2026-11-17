@@ -7,13 +7,16 @@
     <link rel="stylesheet" href="css/style.css">
     <style>
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media(max-width: 768px) { .grid { grid-template-columns: 1fr; } }
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; font-weight: 600; margin-bottom: 5px; }
         .form-group input { width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; box-sizing: border-box; }
-        .btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+        .btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; }
+        .btn:hover { background: var(--primary-dark); }
         table { width: 100%; border-collapse: collapse; margin-top: 10px; }
         th, td { border: 1px solid var(--border-color); padding: 10px; text-align: left; }
         thead { background: #1e293b; color: white; }
+        tr:nth-child(even) { background-color: #f8fafc; }
     </style>
 </head>
 <body>
@@ -34,21 +37,21 @@
         <div class="card grid">
             <div>
                 <h3>Add New Record</h3>
-                <form>
+                <form onsubmit="addRow(event)">
                     <div class="form-group">
                         <label>Item Name:</label>
-                        <input type="text" placeholder="Enter name..." required>
+                        <input type="text" id="itemName" placeholder="Enter name..." required>
                     </div>
                     <div class="form-group">
                         <label>Category:</label>
-                        <input type="text" placeholder="Enter category..." required>
+                        <input type="text" id="itemCat" placeholder="Enter category..." required>
                     </div>
                     <button type="submit" class="btn">Submit Data</button>
                 </form>
             </div>
             <div>
                 <h3>Data Management Table</h3>
-                <table>
+                <table id="dataTable">
                     <thead>
                         <tr><th scope="col">ID</th><th scope="col">Item</th><th scope="col">Category</th></tr>
                     </thead>
@@ -64,5 +67,21 @@
     <footer>
         <p>&copy; 2026 INS2053 Learning Hub.</p>
     </footer>
+
+    <script>
+        let rowCount = 2;
+        function addRow(e) {
+            e.preventDefault();
+            const name = document.getElementById('itemName').value;
+            const cat = document.getElementById('itemCat').value;
+            rowCount++;
+            const tbody = document.querySelector('#dataTable tbody');
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td>${rowCount}</td><td>${name}</td><td>${cat}</td>`;
+            tbody.appendChild(tr);
+            document.getElementById('itemName').value = '';
+            document.getElementById('itemCat').value = '';
+        }
+    </script>
 </body>
 </html>
