@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game - INS2053 Learning Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .options label { display: block; background: #f1f5f9; padding: 12px; border-radius: 6px; margin-bottom: 10px; cursor: pointer; }
+        .options label:hover { background: #e2e8f0; }
+        .btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; margin-top: 15px; }
+        #result { margin-top: 15px; font-weight: bold; font-size: 1.1rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <p>✦ Gamification ✦</p>
+        <h1>Interactive HTML Quiz Challenge</h1>
+        <p>Test your conceptual knowledge instantly</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="viva-guide.html">Viva Q&A (10 Qs)</a>
+        <a href="crud-form.html">Form & CRUD Table</a>
+        <a href="quiz.html" class="active">Interactive Quiz Game</a>
+    </nav>
+
+    <div class="container">
+        <div class="quiz-box">
+            <h3>Question 1: Which HTML5 tag is semantically correct for primary navigation?</h3>
+            <div class="options">
+                <label><input type="radio" name="opt" value="A"> A) &lt;div class="nav"&gt;</label>
+                <label><input type="radio" name="opt" value="B"> B) &lt;nav&gt;</label>
+                <label><input type="radio" name="opt" value="C"> C) &lt;menu-bar&gt;</label>
+            </div>
+            <button class="btn" onclick="checkAnswer()">Submit Answer</button>
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const selected = document.querySelector('input[name="opt"]:checked');
+            const res = document.getElementById('result');
+            if(!selected) {
+                res.innerHTML = "⚠️ Please select an option first!";
+                res.style.color = "#d97706";
+                return;
+            }
+            if(selected.value === "B") {
+                res.innerHTML = "✅ Correct! &lt;nav&gt; is the proper semantic tag.";
+                res.style.color = "#16a34a";
+            } else {
+                res.innerHTML = "❌ Incorrect. The correct semantic tag is &lt;nav&gt;.";
+                res.style.color = "#dc2626";
+            }
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2026 INS2053 Learning Hub.</p>
+    </footer>
+</body>
+</html>

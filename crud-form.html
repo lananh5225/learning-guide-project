@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form & CRUD - INS2053 Learning Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 5px; }
+        .form-group input { width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; box-sizing: border-box; }
+        .btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid var(--border-color); padding: 10px; text-align: left; }
+        thead { background: #1e293b; color: white; }
+    </style>
+</head>
+<body>
+    <header>
+        <p>✦ Interactive Components ✦</p>
+        <h1>HTML Forms & CRUD Data Table</h1>
+        <p>Dynamic data management and user input simulation</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="viva-guide.html">Viva Q&A (10 Qs)</a>
+        <a href="crud-form.html" class="active">Form & CRUD Table</a>
+        <a href="quiz.html">Interactive Quiz Game</a>
+    </nav>
+
+    <div class="container">
+        <div class="card grid">
+            <div>
+                <h3>Add New Record</h3>
+                <form>
+                    <div class="form-group">
+                        <label>Item Name:</label>
+                        <input type="text" placeholder="Enter name..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Category:</label>
+                        <input type="text" placeholder="Enter category..." required>
+                    </div>
+                    <button type="submit" class="btn">Submit Data</button>
+                </form>
+            </div>
+            <div>
+                <h3>Data Management Table</h3>
+                <table>
+                    <thead>
+                        <tr><th scope="col">ID</th><th scope="col">Item</th><th scope="col">Category</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Web Template</td><td>Frontend</td></tr>
+                        <tr><td>2</td><td>Database Schema</td><td>Backend</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 INS2053 Learning Hub.</p>
+    </footer>
+</body>
+</html>
