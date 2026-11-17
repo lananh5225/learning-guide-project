@@ -3,267 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INS2053 Advanced Learning Hub & Project Showcase</title>
-    <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --accent: #0ea5e9;
-            --bg-color: #f8fafc;
-            --text-color: #334155;
-            --card-bg: #ffffff;
-            --border-color: #e2e8f0;
-        }
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: linear-gradient(135deg, #1e3a8a, #2563eb);
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
-        }
-        header h1 { margin: 10px 0; font-size: 2.5rem; }
-        header p { margin: 0; opacity: 0.9; font-size: 1.1rem; }
-
-        nav {
-            background: #0f172a;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 14px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-        }
-        nav a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 6px;
-            transition: all 0.2s;
-        }
-        nav a:hover {
-            color: white;
-            background-color: var(--primary);
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-        section {
-            background: var(--card-bg);
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            margin-bottom: 30px;
-        }
-        h2 { color: #1e293b; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0; }
-        .q-item {
-            background: #f8fafc;
-            border-left: 4px solid var(--primary);
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 0 8px 8px 0;
-        }
-        .q-item h3 { margin-top: 0; color: #1e40af; }
-        pre {
-            background: #0f172a;
-            color: #e2e8f0;
-            padding: 15px;
-            border-radius: 8px;
-            overflow-x: auto;
-            font-size: 0.9rem;
-        }
-        .dialogue {
-            background: #f1f5f9;
-            border-left: 4px solid var(--accent);
-            padding: 12px 15px;
-            border-radius: 0 6px 6px 0;
-            margin-top: 10px;
-        }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        @media(max-width: 768px) { .grid { grid-template-columns: 1fr; } }
-        
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; font-weight: 600; margin-bottom: 5px; }
-        .form-group input { width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; box-sizing: border-box; }
-        .btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
-        .btn:hover { background: var(--primary-dark); }
-        
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th, td { border: 1px solid var(--border-color); padding: 12px; text-align: left; }
-        thead { background: #1e293b; color: white; }
-        tr:nth-child(even) { background-color: #f8fafc; }
-
-        .quiz-card { background: #f0fdf4; border: 1px solid #bbf7d0; padding: 25px; border-radius: 8px; margin-top: 20px; }
-        .options label { display: block; background: white; padding: 12px; border: 1px solid #d1d5db; border-radius: 6px; margin-bottom: 10px; cursor: pointer; }
-        .options label:hover { background: #f3f4f6; }
-        #quiz-result { margin-top: 15px; font-weight: bold; }
-
-        footer {
-            background: #0f172a;
-            color: #94a3b8;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 50px;
-        }
-    </style>
+    <title>Home - INS2053 Learning Hub</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
     <header>
         <p>✦ INS2053 Web Authoring & Management ✦</p>
-        <h1>Advanced Learning Hub & Project Showcase</h1>
-        <p>Interactive platform featuring Semantic Structure, Viva Q&A, CRUD Data Tables, and Gamified Quiz</p>
+        <h1>Interactive Learning & Viva Hub</h1>
+        <p>Your multi-page portal for course mastery and project showcase</p>
     </header>
 
     <nav>
-        <a href="#overview">Overview</a>
-        <a href="#viva">Viva Guide (10 Qs)</a>
-        <a href="#crud">Form & CRUD Table</a>
-        <a href="#quiz">Quiz Game</a>
+        <a href="index.html" class="active">Home</a>
+        <a href="viva-guide.html">Viva Q&A (10 Qs)</a>
+        <a href="crud-form.html">Form & CRUD Table</a>
+        <a href="quiz.html">Interactive Quiz Game</a>
     </nav>
 
     <div class="container">
-        <!-- Section 1: Overview -->
-        <section id="overview">
-            <h2>🚀 Project Overview & Architecture</h2>
-            <p>This multi-functional web application is meticulously engineered to exceed standard course requirements for the <strong>INS2053</strong> module. It combines theoretical rigor with practical interactive modules.</p>
-            <ul>
-                <li><strong>Semantic HTML5 Structure:</strong> Implementing proper layout elements (`&lt;header&gt;`, `&lt;nav&gt;`, `&lt;section&gt;`, `&lt;footer&gt;`).</li>
-                <li><strong>Interactive Components:</strong> Fully functional data entry forms, dynamic tables, and instant JavaScript validation.</li>
-                <li><strong>Gamification:</strong> Built-in trivia challenge to test core web design concepts.</li>
-            </ul>
-        </section>
-
-        <!-- Section 2: Viva Q&A -->
-        <section id="viva">
-            <h2>📚 10 HTML & Web Design Viva Questions</h2>
-
-            <div class="q-item">
-                <h3>Question 1: Why use Semantic HTML tags (&lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;footer&gt;) instead of &lt;div&gt;?</h3>
-                <p><strong>1. Theoretical Foundation:</strong> Semantic tags convey explicit structural meaning to browsers, search engine crawlers (SEO), and assistive screen readers.</p>
-                <p><strong>2. Code Example:</strong></p>
-                <pre>&lt;header&gt;&lt;h1&gt;Title&lt;/h1&gt;&lt;nav&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/nav&gt;&lt;/header&gt;</pre>
-                <div class="dialogue">
-                    <p>👨‍🏫 <em>Instructor:</em> "Why use &lt;header&gt; instead of &lt;div class='header'&gt;?"<br>
-                    👩‍🎓 <em>Student:</em> "It provides explicit semantic meaning for accessibility and SEO optimization."</p>
-                </div>
-            </div>
-
-            <div class="q-item">
-                <h3>Question 2: What are the core components of a standard HTML Table & why separate thead/tbody?</h3>
-                <p><strong>1. Theoretical Foundation:</strong> Tables utilize <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code> to separate header metadata from data rows, enabling structured styling and accessibility support.</p>
-                <p><strong>2. Code Example:</strong></p>
-                <pre>&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th scope="col"&gt;ID&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</pre>
-            </div>
-
-            <div class="q-item">
-                <h3>Questions 3 - 10: Form Attributes, GET/POST Methods, Box Model, & Git Workflow</h3>
-                <p>Covering comprehensive topics including form action endpoints, secure payload transmission via POST, global box-sizing rule adjustments, zebra striping table rows with <code>nth-child(even)</code>, and GitHub Pages deployment processes.</p>
-            </div>
-        </section>
-
-        <!-- Section 3: CRUD Form & Table -->
-        <section id="crud">
-            <h2>🛠️ Interactive Form & CRUD Data Table</h2>
-            <div class="grid">
-                <div>
-                    <h3>Add New Record Form</h3>
-                    <form onsubmit="addRow(event)">
-                        <div class="form-group">
-                            <label>Item Name:</label>
-                            <input type="text" id="itemName" placeholder="e.g., CSS Modules" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Category:</label>
-                            <input type="text" id="itemCat" placeholder="e.g., Frontend" required>
-                        </div>
-                        <button type="submit" class="btn">Add to Table</button>
-                    </form>
-                </div>
-                <div>
-                    <h3>Dynamic Data Management Table</h3>
-                    <table id="dataTable">
-                        <thead>
-                            <tr><th scope="col">ID</th><th scope="col">Item Name</th><th scope="col">Category</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>1</td><td>Semantic Layout</td><td>Architecture</td></tr>
-                            <tr><td>2</td><td>CRUD Architecture</td><td>Interactive</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 4: Quiz Game -->
-        <section id="quiz">
-            <h2>🎮 Interactive Quiz Challenge</h2>
-            <p>Test your conceptual knowledge of HTML5 and web management instantly!</p>
+        <div class="card">
+            <h2>Welcome to the Learning Ecosystem</h2>
+            <p>This multi-page application is structured to meet rigorous academic standards for the <strong>INS2053</strong> course. Use the top navigation bar to switch seamlessly between dedicated pages covering theory, data tables, and gamified quizzes.</p>
             
-            <div class="quiz-card">
-                <h3 id="quiz-question">Question 1: Which HTML5 tag is semantically correct for primary website navigation?</h3>
-                <div class="options" id="quiz-options">
-                    <label><input type="radio" name="quizOpt" value="A"> A) &lt;div class="nav"&gt;</label>
-                    <label><input type="radio" name="quizOpt" value="B"> B) &lt;nav&gt;</label>
-                    <label><input type="radio" name="quizOpt" value="C"> C) &lt;menu-bar&gt;</label>
-                </div>
-                <button class="btn" onclick="submitQuiz()">Submit Answer</button>
-                <div id="quiz-result"></div>
-            </div>
-        </section>
+            <h3>🔗 Official Course Links</h3>
+            <ul>
+                <li><a href="https://hieutachi.github.io/INS2053-Web-Authoring-and-Web-Management-IS_VNU_Course/vi/index.html" target="_blank">Official Course Site (VNU-IS)</a></li>
+                <li><a href="https://hieutachi.github.io/INS2053-Web-Authoring-and-Web-Management-IS_VNU_Course/vi/slides/index.html" target="_blank">Course Lecture Slides</a></li>
+            </ul>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 INS2053 Advanced Learning Hub. International School, VNU Hanoi.</p>
+        <p>&copy; 2026 INS2053 Hub. International School, VNU Hanoi.</p>
     </footer>
-
-    <script>
-        // Simple CRUD Add function
-        let rowCount = 2;
-        function addRow(e) {
-            e.preventDefault();
-            const name = document.getElementById('itemName').value;
-            const cat = document.getElementById('itemCat').value;
-            rowCount++;
-            
-            const tbody = document.querySelector('#dataTable tbody');
-            const tr = document.createElement('tr');
-            tr.innerHTML = `<td>${rowCount}</td><td>${name}</td><td>${cat}</td>`;
-            tbody.appendChild(tr);
-            
-            document.getElementById('itemName').value = '';
-            document.getElementById('itemCat').value = '';
-        }
-
-        // Quiz Check function
-        function submitQuiz() {
-            const selected = document.querySelector('input[name="quizOpt"]:checked');
-            const res = document.getElementById('quiz-result');
-            if(!selected) {
-                res.innerHTML = "⚠️ Please select an option first!";
-                res.style.color = "#d97706";
-                return;
-            }
-            if(selected.value === "B") {
-                res.innerHTML = "✅ Correct! &lt;nav&gt; is the proper semantic tag for primary navigation.";
-                res.style.color = "#16a34a";
-            } else {
-                res.innerHTML = "❌ Incorrect. The correct semantic tag is &lt;nav&gt;.";
-                res.style.color = "#dc2626";
-            }
-        }
-    </script>
 </body>
 </html>
