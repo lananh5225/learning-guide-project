@@ -3,64 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Game - INS2053 Learning Hub</title>
+    <meta name="theme-color" content="#10233f">
+    <title>Knowledge Quiz - INS2053 Learning Hub</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .options label { display: block; background: #f1f5f9; padding: 12px; border-radius: 6px; margin-bottom: 10px; cursor: pointer; border: 1px solid var(--border-color); }
-        .options label:hover { background: #e2e8f0; }
-        .btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; margin-top: 15px; }
-        .btn:hover { background: var(--primary-dark); }
-        #result { margin-top: 15px; font-weight: bold; font-size: 1.1rem; }
-    </style>
 </head>
 <body>
-    <header>
-        <p>✦ Gamification ✦</p>
-        <h1>Interactive HTML Quiz Challenge</h1>
-        <p>Test your conceptual knowledge instantly</p>
+    <header class="site-header page-header">
+        <p class="eyebrow">A QUICK KNOWLEDGE CHECK</p>
+        <h1>Put your skills to the test.</h1>
+        <p>Five questions on HTML, CSS, forms, and everyday web concepts.</p>
     </header>
-
-    <nav>
+    <nav aria-label="Main navigation">
         <a href="index.html">Home</a>
-        <a href="viva-guide.html">Viva Q&A (10 Qs)</a>
-        <a href="crud-form.html">Form & CRUD Table</a>
-        <a href="quiz.html" class="active">Interactive Quiz Game</a>
+        <a href="viva-guide.html">Viva guide</a>
+        <a href="crud-form.html">Form &amp; data</a>
+        <a href="quiz.html" class="active" aria-current="page">Knowledge quiz</a>
     </nav>
 
-    <div class="container">
-        <div class="quiz-box">
-            <h3>Question 1: Which HTML5 tag is semantically correct for primary navigation?</h3>
-            <div class="options">
-                <label><input type="radio" name="opt" value="A"> A) &lt;div class="nav"&gt;</label>
-                <label><input type="radio" name="opt" value="B"> B) &lt;nav&gt;</label>
-                <label><input type="radio" name="opt" value="C"> C) &lt;menu-bar&gt;</label>
+    <main class="container">
+        <section class="page-intro">
+            <div>
+                <p class="eyebrow">5 QUESTIONS · ONE FINAL SCORE</p>
+                <h2>How much do you remember?</h2>
+                <p>Choose one answer for each question, then submit to see your score.</p>
             </div>
-            <button class="btn" onclick="checkAnswer()">Submit Answer</button>
-            <div id="result"></div>
-        </div>
-    </div>
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="People working and learning together with a laptop">
+        </section>
 
-    <footer>
-        <p>&copy; 2026 INS2053 Learning Hub.</p>
-    </footer>
+        <section class="score-card" aria-label="Score tracker">
+            <span class="score-icon" aria-hidden="true">✦</span>
+            <div>
+                <p class="eyebrow">SCORE TRACKER</p>
+                <p id="scoreTracker" aria-live="polite">Your result will appear here after you submit.</p>
+            </div>
+        </section>
 
+        <form id="quizForm" class="quiz-list">
+            <fieldset class="quiz-question">
+                <legend><span class="question-label">QUESTION 01</span> Which HTML element identifies a section of primary navigation?</legend>
+                <label class="option"><input type="radio" name="q1" value="a"> <span><code>&lt;div class="nav"&gt;</code></span></label>
+                <label class="option"><input type="radio" name="q1" value="b"> <span><code>&lt;nav&gt;</code></span></label>
+                <label class="option"><input type="radio" name="q1" value="c"> <span><code>&lt;menu-bar&gt;</code></span></label>
+            </fieldset>
+            <fieldset class="quiz-question">
+                <legend><span class="question-label">QUESTION 02</span> Which attribute provides alternative text for an image?</legend>
+                <label class="option"><input type="radio" name="q2" value="a"> <span><code>alt</code></span></label>
+                <label class="option"><input type="radio" name="q2" value="b"> <span><code>title-text</code></span></label>
+                <label class="option"><input type="radio" name="q2" value="c"> <span><code>caption</code></span></label>
+            </fieldset>
+            <fieldset class="quiz-question">
+                <legend><span class="question-label">QUESTION 03</span> Which CSS rule includes padding and border within an element's declared width?</legend>
+                <label class="option"><input type="radio" name="q3" value="a"> <span><code>box-sizing: content-box</code></span></label>
+                <label class="option"><input type="radio" name="q3" value="b"> <span><code>display: inline</code></span></label>
+                <label class="option"><input type="radio" name="q3" value="c"> <span><code>box-sizing: border-box</code></span></label>
+            </fieldset>
+            <fieldset class="quiz-question">
+                <legend><span class="question-label">QUESTION 04</span> Which HTML attribute makes a form field mandatory in the browser?</legend>
+                <label class="option"><input type="radio" name="q4" value="a"> <span><code>required</code></span></label>
+                <label class="option"><input type="radio" name="q4" value="b"> <span><code>validate</code></span></label>
+                <label class="option"><input type="radio" name="q4" value="c"> <span><code>mandatory</code></span></label>
+            </fieldset>
+            <fieldset class="quiz-question">
+                <legend><span class="question-label">QUESTION 05</span> Which HTTP method is commonly used to retrieve a resource?</legend>
+                <label class="option"><input type="radio" name="q5" value="a"> <span><code>POST</code></span></label>
+                <label class="option"><input type="radio" name="q5" value="b"> <span><code>GET</code></span></label>
+                <label class="option"><input type="radio" name="q5" value="c"> <span><code>PATCH</code></span></label>
+            </fieldset>
+            <div class="quiz-actions">
+                <button type="submit" class="button">Finish quiz <span aria-hidden="true">→</span></button>
+                <button type="reset" id="resetQuiz" class="button button-secondary" hidden>Try again</button>
+            </div>
+            <p id="quizResult" class="quiz-result" aria-live="polite"></p>
+        </form>
+    </main>
+    <footer><p>&copy; 2026 INS2053 Learning Hub · International School, VNU Hanoi</p></footer>
     <script>
-        function checkAnswer() {
-            const selected = document.querySelector('input[name="opt"]:checked');
-            const res = document.getElementById('result');
-            if(!selected) {
-                res.innerHTML = "⚠️ Please select an option first!";
-                res.style.color = "#d97706";
-                return;
-            }
-            if(selected.value === "B") {
-                res.innerHTML = "✅ Correct! &lt;nav&gt; is the proper semantic tag.";
-                res.style.color = "#16a34a";
-            } else {
-                res.innerHTML = "❌ Incorrect. The correct semantic tag is &lt;nav&gt;.";
-                res.style.color = "#dc2626";
-            }
-        }
+        const quizForm = document.getElementById('quizForm');
+        const scoreTracker = document.getElementById('scoreTracker');
+        const quizResult = document.getElementById('quizResult');
+        const resetQuiz = document.getElementById('resetQuiz');
+        const answers = { q1: 'b', q2: 'a', q3: 'c', q4: 'a', q5: 'b' };
+        const totalQuestions = Object.keys(answers).length;
+
+        quizForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formData = new FormData(quizForm);
+            const score = Object.entries(answers).reduce((total, [question, answer]) =>
+                total + (formData.get(question) === answer ? 1 : 0), 0);
+            const percentage = Math.round((score / totalQuestions) * 100);
+
+            scoreTracker.textContent = `${score} / ${totalQuestions} correct · ${percentage}%`;
+            quizResult.textContent = score === totalQuestions
+                ? 'Excellent work — you got every answer right.'
+                : `You got ${score} of ${totalQuestions} correct. Review the topics and try again.`;
+            quizResult.classList.toggle('result-success', score === totalQuestions);
+            quizResult.classList.add('is-visible');
+            quizForm.querySelectorAll('input[type="radio"]').forEach((input) => { input.disabled = true; });
+            quizForm.querySelector('button[type="submit"]').hidden = true;
+            resetQuiz.hidden = false;
+        });
+
+        quizForm.addEventListener('reset', () => {
+            window.setTimeout(() => {
+                scoreTracker.textContent = 'Your result will appear here after you submit.';
+                quizResult.textContent = '';
+                quizResult.classList.remove('is-visible', 'result-success');
+                quizForm.querySelectorAll('input[type="radio"]').forEach((input) => { input.disabled = false; });
+                quizForm.querySelector('button[type="submit"]').hidden = false;
+                resetQuiz.hidden = true;
+            }, 0);
+        });
     </script>
 </body>
 </html>

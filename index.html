@@ -3,38 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#10233f">
     <title>Home - INS2053 Learning Hub</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <p>✦ INS2053 Web Authoring & Management ✦</p>
-        <h1>Interactive Learning & Viva Hub</h1>
-        <p>Your multi-page portal for course mastery and project showcase</p>
+    <header class="site-header">
+        <p class="eyebrow">INS2053 · WEB AUTHORING &amp; MANAGEMENT</p>
+        <h1>Learn by building.</h1>
+        <p>Your interactive space to explore, practise, and master the web.</p>
     </header>
 
-    <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="viva-guide.html">Viva Q&A (10 Qs)</a>
-        <a href="crud-form.html">Form & CRUD Table</a>
-        <a href="quiz.html">Interactive Quiz Game</a>
+    <nav aria-label="Main navigation">
+        <a href="index.html" class="active" aria-current="page">Home</a>
+        <a href="viva-guide.html">Viva guide</a>
+        <a href="crud-form.html">Form &amp; data</a>
+        <a href="quiz.html">Knowledge quiz</a>
     </nav>
 
-    <div class="container">
-        <div class="card">
-            <h2>Welcome to the Learning Ecosystem</h2>
-            <p>This multi-page application is structured to meet rigorous academic standards for the <strong>INS2053</strong> course. Use the top navigation bar to switch seamlessly between dedicated pages covering theory, data tables, and gamified quizzes.</p>
-            
-            <h3>🔗 Official Course Links</h3>
-            <ul>
-                <li><a href="https://hieutachi.github.io/INS2053-Web-Authoring-and-Web-Management-IS_VNU_Course/vi/index.html" target="_blank">Official Course Site (VNU-IS)</a></li>
-                <li><a href="https://hieutachi.github.io/INS2053-Web-Authoring-and-Web-Management-IS_VNU_Course/vi/slides/index.html" target="_blank">Course Lecture Slides</a></li>
-            </ul>
+    <main class="container">
+        <section class="hero-card">
+            <div class="hero-copy">
+                <p class="eyebrow">YOUR COURSE, IN ONE PLACE</p>
+                <h2>Turn web concepts into practical skills.</h2>
+                <p>Review key ideas, organise sample data, and check your understanding with a quick interactive quiz.</p>
+                <a class="button-link" href="viva-guide.html">Explore the learning hub <span aria-hidden="true">→</span></a>
+            </div>
+            <img class="hero-image" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Laptop displaying a web development workspace">
+        </section>
+
+        <section class="section-heading">
+            <p class="eyebrow">CHOOSE YOUR NEXT STEP</p>
+            <h2>A focused toolkit for INS2053</h2>
+        </section>
+        <div class="feature-grid">
+            <a class="feature-card" href="viva-guide.html">
+                <span class="feature-number">01</span>
+                <h3>Prepare for your viva</h3>
+                <p>Browse ten concise questions on HTML, forms, layout, and web workflows.</p>
+                <span class="text-link">Browse questions <span aria-hidden="true">→</span></span>
+            </a>
+            <a class="feature-card" href="crud-form.html">
+                <span class="feature-number">02</span>
+                <h3>Practise data management</h3>
+                <p>Add and remove records, with your sample data saved in this browser.</p>
+                <span class="text-link">Open the data table <span aria-hidden="true">→</span></span>
+            </a>
+            <a class="feature-card" href="quiz.html">
+                <span class="feature-number">03</span>
+                <h3>Check your knowledge</h3>
+                <p>Answer five multiple-choice questions and see your final score.</p>
+                <span class="text-link">Start the quiz <span aria-hidden="true">→</span></span>
+            </a>
         </div>
-    </div>
+
+        <section class="resource-card">
+            <div>
+                <p class="eyebrow">KEEP LEARNING</p>
+                <h2>Official course resources</h2>
+                <p>Continue your studies with the course site and lecture slides.</p>
+            </div>
+            <div class="resource-links">
+                <a href="https://hieutachi.github.io/INS2053-Web-Authoring-and-Web-Management-IS_VNU_Course/vi/index.html" target="_blank" rel="noopener noreferrer">Official course site <span aria-hidden="true">↗</span></a>
+                <a href="https://hieutachi.github.io/INS2053-Web-Authoring-and-Web-Management-IS_VNU_Course/vi/slides/index.html" target="_blank" rel="noopener noreferrer">Lecture slides <span aria-hidden="true">↗</span></a>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2026 INS2053 Hub. International School, VNU Hanoi.</p>
+        <p>&copy; 2026 INS2053 Learning Hub · International School, VNU Hanoi</p>
     </footer>
 </body>
 </html>

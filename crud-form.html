@@ -3,85 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form & CRUD - INS2053 Learning Hub</title>
+    <meta name="theme-color" content="#10233f">
+    <title>Form &amp; Data - INS2053 Learning Hub</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        @media(max-width: 768px) { .grid { grid-template-columns: 1fr; } }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; font-weight: 600; margin-bottom: 5px; }
-        .form-group input { width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; box-sizing: border-box; }
-        .btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; }
-        .btn:hover { background: var(--primary-dark); }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th, td { border: 1px solid var(--border-color); padding: 10px; text-align: left; }
-        thead { background: #1e293b; color: white; }
-        tr:nth-child(even) { background-color: #f8fafc; }
-    </style>
 </head>
 <body>
-    <header>
-        <p>✦ Interactive Components ✦</p>
-        <h1>HTML Forms & CRUD Data Table</h1>
-        <p>Dynamic data management and user input simulation</p>
+    <header class="site-header page-header">
+        <p class="eyebrow">INTERACTIVE COMPONENTS</p>
+        <h1>Forms &amp; data</h1>
+        <p>Practise creating and managing records in a persistent browser table.</p>
     </header>
-
-    <nav>
+    <nav aria-label="Main navigation">
         <a href="index.html">Home</a>
-        <a href="viva-guide.html">Viva Q&A (10 Qs)</a>
-        <a href="crud-form.html" class="active">Form & CRUD Table</a>
-        <a href="quiz.html">Interactive Quiz Game</a>
+        <a href="viva-guide.html">Viva guide</a>
+        <a href="crud-form.html" class="active" aria-current="page">Form &amp; data</a>
+        <a href="quiz.html">Knowledge quiz</a>
     </nav>
 
-    <div class="container">
-        <div class="card grid">
+    <main class="container">
+        <section class="page-intro">
             <div>
-                <h3>Add New Record</h3>
-                <form onsubmit="addRow(event)">
+                <p class="eyebrow">CREATE · REVIEW · DELETE</p>
+                <h2>A small table, saved as you work.</h2>
+                <p>Add sample items or remove a row. Your records stay in this browser after refresh.</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="A team collaborating around a laptop and shared work">
+        </section>
+
+        <div class="crud-layout">
+            <section class="card form-card">
+                <p class="eyebrow">NEW RECORD</p>
+                <h2>Add an item</h2>
+                <p class="muted">Enter a name and category to add it to your table.</p>
+                <form id="recordForm">
                     <div class="form-group">
-                        <label>Item Name:</label>
-                        <input type="text" id="itemName" placeholder="Enter name..." required>
+                        <label for="itemName">Item name</label>
+                        <input type="text" id="itemName" name="itemName" placeholder="e.g. Web template" maxlength="100" required>
                     </div>
                     <div class="form-group">
-                        <label>Category:</label>
-                        <input type="text" id="itemCat" placeholder="Enter category..." required>
+                        <label for="itemCat">Category</label>
+                        <input type="text" id="itemCat" name="itemCat" placeholder="e.g. Frontend" maxlength="60" required>
                     </div>
-                    <button type="submit" class="btn">Submit Data</button>
+                    <button type="submit" class="button">Add to table <span aria-hidden="true">+</span></button>
                 </form>
-            </div>
-            <div>
-                <h3>Data Management Table</h3>
-                <table id="dataTable">
-                    <thead>
-                        <tr><th scope="col">ID</th><th scope="col">Item</th><th scope="col">Category</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>Web Template</td><td>Frontend</td></tr>
-                        <tr><td>2</td><td>Database Schema</td><td>Backend</td></tr>
-                    </tbody>
-                </table>
-            </div>
+                <p id="storageStatus" class="status-message" role="status">Your changes are saved in this browser.</p>
+            </section>
+
+            <section class="card table-card">
+                <div class="table-heading">
+                    <div>
+                        <p class="eyebrow">YOUR COLLECTION</p>
+                        <h2>Data table</h2>
+                    </div>
+                    <span id="recordCount" class="count-badge">0 records</span>
+                </div>
+                <div class="table-scroll">
+                    <table id="dataTable">
+                        <thead>
+                            <tr><th scope="col">ID</th><th scope="col">Item</th><th scope="col">Category</th><th scope="col"><span class="visually-hidden">Actions</span></th></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <p id="emptyTable" class="empty-state" hidden>No records yet. Add your first item using the form.</p>
+            </section>
         </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 INS2053 Learning Hub.</p>
-    </footer>
-
+    </main>
+    <footer><p>&copy; 2026 INS2053 Learning Hub · International School, VNU Hanoi</p></footer>
     <script>
-        let rowCount = 2;
-        function addRow(e) {
-            e.preventDefault();
-            const name = document.getElementById('itemName').value;
-            const cat = document.getElementById('itemCat').value;
-            rowCount++;
-            const tbody = document.querySelector('#dataTable tbody');
-            const tr = document.createElement('tr');
-            tr.innerHTML = `<td>${rowCount}</td><td>${name}</td><td>${cat}</td>`;
-            tbody.appendChild(tr);
-            document.getElementById('itemName').value = '';
-            document.getElementById('itemCat').value = '';
+        const storageKey = 'ins2053-learning-hub-records';
+        const defaultRecords = [
+            { id: 1, name: 'Web Template', category: 'Frontend' },
+            { id: 2, name: 'Database Schema', category: 'Backend' }
+        ];
+        const form = document.getElementById('recordForm');
+        const tableBody = document.querySelector('#dataTable tbody');
+        const storageStatus = document.getElementById('storageStatus');
+        const recordCount = document.getElementById('recordCount');
+        const emptyTable = document.getElementById('emptyTable');
+        let records = defaultRecords.map((record) => ({ ...record }));
+
+        function setStatus(message, isError = false) {
+            storageStatus.textContent = message;
+            storageStatus.classList.toggle('status-error', isError);
         }
+
+        function loadRecords() {
+            try {
+                const savedRecords = localStorage.getItem(storageKey);
+                if (savedRecords === null) return;
+
+                const parsedRecords = JSON.parse(savedRecords);
+                if (!Array.isArray(parsedRecords) || parsedRecords.some((record) =>
+                    !record || !Number.isInteger(record.id) || typeof record.name !== 'string' || typeof record.category !== 'string'
+                )) {
+                    throw new Error('Saved records have an invalid format.');
+                }
+                records = parsedRecords;
+            } catch (error) {
+                setStatus('Saved data could not be loaded. The sample records are shown; changes may not persist.', true);
+                console.error('Unable to load saved records:', error);
+            }
+        }
+
+        function saveRecords() {
+            try {
+                localStorage.setItem(storageKey, JSON.stringify(records));
+                setStatus('Your changes are saved in this browser.');
+            } catch (error) {
+                setStatus('Could not save changes in this browser. Check storage settings and try again.', true);
+                console.error('Unable to save records:', error);
+            }
+        }
+
+        function renderRecords() {
+            tableBody.replaceChildren();
+            records.forEach((record) => {
+                const row = document.createElement('tr');
+                [record.id, record.name, record.category].forEach((value) => {
+                    const cell = document.createElement('td');
+                    cell.textContent = value;
+                    row.appendChild(cell);
+                });
+
+                const actionCell = document.createElement('td');
+                actionCell.className = 'action-cell';
+                const deleteButton = document.createElement('button');
+                deleteButton.type = 'button';
+                deleteButton.className = 'delete-button';
+                deleteButton.textContent = 'Delete';
+                deleteButton.setAttribute('aria-label', `Delete ${record.name}`);
+                deleteButton.addEventListener('click', () => {
+                    records = records.filter((item) => item.id !== record.id);
+                    renderRecords();
+                    saveRecords();
+                });
+                actionCell.appendChild(deleteButton);
+                row.appendChild(actionCell);
+                tableBody.appendChild(row);
+            });
+            recordCount.textContent = `${records.length} ${records.length === 1 ? 'record' : 'records'}`;
+            emptyTable.hidden = records.length !== 0;
+        }
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formData = new FormData(form);
+            const name = formData.get('itemName').trim();
+            const category = formData.get('itemCat').trim();
+            if (!name || !category) return;
+
+            const nextId = records.reduce((highestId, record) => Math.max(highestId, record.id), 0) + 1;
+            records.push({ id: nextId, name, category });
+            renderRecords();
+            saveRecords();
+            form.reset();
+            document.getElementById('itemName').focus();
+        });
+
+        loadRecords();
+        renderRecords();
     </script>
 </body>
 </html>

@@ -3,50 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#10233f">
     <title>Viva Guide - INS2053 Learning Hub</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <p>✦ Viva Preparation ✦</p>
-        <h1>10 HTML & Web Design Viva Questions</h1>
-        <p>Detailed theory, code examples, and instructor-student dialogues</p>
+    <header class="site-header page-header">
+        <p class="eyebrow">REVIEW · UNDERSTAND · EXPLAIN</p>
+        <h1>Viva preparation</h1>
+        <p>Ten clear prompts to help you explain core web concepts with confidence.</p>
     </header>
-
-    <nav>
+    <nav aria-label="Main navigation">
         <a href="index.html">Home</a>
-        <a href="viva-guide.html" class="active">Viva Q&A (10 Qs)</a>
-        <a href="crud-form.html">Form & CRUD Table</a>
-        <a href="quiz.html">Interactive Quiz Game</a>
+        <a href="viva-guide.html" class="active" aria-current="page">Viva guide</a>
+        <a href="crud-form.html">Form &amp; data</a>
+        <a href="quiz.html">Knowledge quiz</a>
     </nav>
 
-    <div class="container">
-        <div class="q-card">
-            <h3>Question 1: Why use Semantic HTML tags (&lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;footer&gt;) instead of &lt;div&gt;?</h3>
-            <p><strong>1. Theoretical Foundation:</strong> Semantic tags convey explicit structural meaning to browsers, SEO crawlers, and screen readers.</p>
-            <p><strong>2. Code Example:</strong></p>
-            <pre>&lt;header&gt;&lt;h1&gt;Title&lt;/h1&gt;&lt;nav&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/nav&gt;&lt;/header&gt;</pre>
-            <div class="dialogue">
-                <p>👨‍🏫 <em>Instructor:</em> "Why use &lt;header&gt; instead of &lt;div class='header'&gt;?"<br>
-                👩‍🎓 <em>Student:</em> "It provides explicit semantic meaning for accessibility and SEO optimization."</p>
+    <main class="container">
+        <section class="page-intro">
+            <div>
+                <p class="eyebrow">STUDY GUIDE · 10 QUESTIONS</p>
+                <h2>Find the topic you need.</h2>
+                <p>Search by keyword, then review the explanation and example for each question.</p>
             </div>
-        </div>
+            <img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Open notebook and study materials on a desk">
+        </section>
 
-        <div class="q-card">
-            <h3>Question 2: What are the core components of a standard HTML Table & why separate thead/tbody?</h3>
-            <p><strong>1. Theoretical Foundation:</strong> Separating header and body improves accessibility and allows precise CSS styling.</p>
-            <p><strong>2. Code Example:</strong></p>
-            <pre>&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th scope="col"&gt;ID&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</pre>
-        </div>
+        <section class="search-panel" aria-label="Search viva questions">
+            <label for="questionSearch">Search questions</label>
+            <input id="questionSearch" type="search" placeholder="Try “forms”, “CSS”, or “Git”..." autocomplete="off">
+            <p id="searchStatus" class="search-status" aria-live="polite">Showing all 10 questions.</p>
+        </section>
 
-        <div class="q-card">
-            <h3>Questions 3 - 10: Attributes, Box Model, GET/POST, & Git Workflow</h3>
-            <p>Full documentation covering colspan/rowspan, form validation attributes, box-sizing border-box rules, and deployment processes.</p>
+        <div class="question-list" id="questionList">
+            <article class="q-card" data-search="semantic html header nav main footer div accessibility seo">
+                <span class="question-label">QUESTION 01</span>
+                <h3>Why use semantic HTML tags instead of generic <code>&lt;div&gt;</code> elements?</h3>
+                <p>Semantic elements such as <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code> describe the purpose of their content. This helps assistive technology and makes page structure easier to understand.</p>
+                <pre><code>&lt;header&gt;
+  &lt;h1&gt;Course notes&lt;/h1&gt;
+  &lt;nav aria-label="Main navigation"&gt;...&lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+            </article>
+            <article class="q-card" data-search="html table thead tbody tr th td scope accessibility">
+                <span class="question-label">QUESTION 02</span>
+                <h3>What are the parts of an HTML table, and why separate <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code>?</h3>
+                <p>A table uses <code>&lt;table&gt;</code> to contain rows, <code>&lt;tr&gt;</code> for each row, and <code>&lt;th&gt;</code> or <code>&lt;td&gt;</code> for header and data cells. Grouping rows in <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code> clarifies structure for styling and assistive tools.</p>
+                <pre><code>&lt;table&gt;
+  &lt;thead&gt;&lt;tr&gt;&lt;th scope="col"&gt;Topic&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+  &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;HTML&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+            </article>
+            <article class="q-card" data-search="html attributes id class href src alt attribute">
+                <span class="question-label">QUESTION 03</span>
+                <h3>What is an HTML attribute?</h3>
+                <p>An attribute provides additional information or configuration for an element. It is written in the opening tag, often as a name and value pair. For example, <code>href</code> identifies a link destination and <code>alt</code> provides an image text alternative.</p>
+                <pre><code>&lt;a href="viva-guide.html"&gt;Study questions&lt;/a&gt;</code></pre>
+            </article>
+            <article class="q-card" data-search="colspan rowspan table cells merge rows columns">
+                <span class="question-label">QUESTION 04</span>
+                <h3>How do <code>colspan</code> and <code>rowspan</code> work in tables?</h3>
+                <p><code>colspan</code> makes a cell span multiple columns; <code>rowspan</code> makes it span multiple rows. Use them when a grouped heading or shared value genuinely describes the cells it covers.</p>
+                <pre><code>&lt;th colspan="2"&gt;Contact details&lt;/th&gt;</code></pre>
+            </article>
+            <article class="q-card" data-search="form validation required type email minlength input browser">
+                <span class="question-label">QUESTION 05</span>
+                <h3>How can HTML forms validate user input?</h3>
+                <p>Choose an appropriate input type and use built-in attributes such as <code>required</code>, <code>minlength</code>, and <code>min</code>. Browser validation improves feedback, but applications should also validate data where it is processed.</p>
+                <pre><code>&lt;input type="email" name="email" required&gt;</code></pre>
+            </article>
+            <article class="q-card" data-search="css box model content padding border margin box sizing">
+                <span class="question-label">QUESTION 06</span>
+                <h3>What is the CSS box model?</h3>
+                <p>Each element is laid out as content surrounded by padding, border, and margin. With <code>box-sizing: border-box</code>, the declared width includes padding and border, making sizing more predictable.</p>
+                <pre><code>* { box-sizing: border-box; }</code></pre>
+            </article>
+            <article class="q-card" data-search="css responsive media queries flexible layout mobile viewport">
+                <span class="question-label">QUESTION 07</span>
+                <h3>How do you make a page responsive?</h3>
+                <p>Use a viewport meta tag, flexible layouts, and media queries to adapt content to available screen space. Keep controls readable and avoid forcing users to scroll horizontally.</p>
+                <pre><code>@media (max-width: 700px) {
+  .layout { grid-template-columns: 1fr; }
+}</code></pre>
+            </article>
+            <article class="q-card" data-search="http get post request form data url server">
+                <span class="question-label">QUESTION 08</span>
+                <h3>What is the difference between HTTP GET and POST?</h3>
+                <p>GET requests a resource and commonly carries query parameters in the URL. POST submits data for processing in the request body. Neither method by itself encrypts data; HTTPS protects data in transit.</p>
+            </article>
+            <article class="q-card" data-search="javascript dom events add event listener interactive browser">
+                <span class="question-label">QUESTION 09</span>
+                <h3>How does JavaScript make a web page interactive?</h3>
+                <p>JavaScript can respond to events, read or update the DOM, and change page state. For example, an event listener can respond when a user submits a form without embedding code directly in the HTML.</p>
+                <pre><code>form.addEventListener("submit", handleSubmit);</code></pre>
+            </article>
+            <article class="q-card" data-search="git workflow version control commit branch push collaboration">
+                <span class="question-label">QUESTION 10</span>
+                <h3>What is a typical Git workflow for a web project?</h3>
+                <p>Check the working tree, create or switch to a branch, make a focused change, review it, and commit with a descriptive message. Push the branch to share work and open a review before merging when collaborating.</p>
+                <pre><code>git status
+git add index.html
+git commit -m "Update home page"</code></pre>
+            </article>
+            <p id="noResults" class="empty-state" hidden>No questions match that search. Try another keyword.</p>
         </div>
-    </div>
+    </main>
+    <footer><p>&copy; 2026 INS2053 Learning Hub · International School, VNU Hanoi</p></footer>
+    <script>
+        const searchInput = document.getElementById('questionSearch');
+        const questionCards = [...document.querySelectorAll('.q-card')];
+        const searchStatus = document.getElementById('searchStatus');
+        const noResults = document.getElementById('noResults');
 
-    <footer>
-        <p>&copy; 2026 INS2053 Learning Hub.</p>
-    </footer>
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.trim().toLowerCase();
+            let visibleCount = 0;
+
+            questionCards.forEach((card) => {
+                const matches = `${card.textContent} ${card.dataset.search}`.toLowerCase().includes(query);
+                card.hidden = !matches;
+                if (matches) visibleCount += 1;
+            });
+
+            noResults.hidden = visibleCount !== 0;
+            searchStatus.textContent = query
+                ? `Showing ${visibleCount} of ${questionCards.length} questions.`
+                : `Showing all ${questionCards.length} questions.`;
+        });
+    </script>
 </body>
 </html>
