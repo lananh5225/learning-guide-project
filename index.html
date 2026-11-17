@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INS2053 Advanced Learning Hub & Viva Guide</title>
+    <title>INS2053 Advanced Learning Hub & Project Showcase</title>
     <style>
         :root {
             --primary: #2563eb;
@@ -22,7 +22,6 @@
             margin: 0;
             padding: 0;
         }
-        /* HEADER & NAVIGATION */
         header {
             background: linear-gradient(135deg, #1e3a8a, #2563eb);
             color: white;
@@ -30,443 +29,241 @@
             padding: 50px 20px;
         }
         header h1 { margin: 10px 0; font-size: 2.5rem; }
-        header p { margin: 0; opacity: 0.9; font-size: 1.15rem; }
-        
+        header p { margin: 0; opacity: 0.9; font-size: 1.1rem; }
+
         nav {
             background: #0f172a;
             display: flex;
             justify-content: center;
             gap: 20px;
-            padding: 12px 0;
+            padding: 14px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
         }
         nav a {
             color: #cbd5e1;
             text-decoration: none;
             font-weight: 600;
-            padding: 6px 14px;
+            padding: 8px 16px;
             border-radius: 6px;
             transition: all 0.2s;
         }
-        nav a:hover, nav a.active {
+        nav a:hover {
             color: white;
             background-color: var(--primary);
         }
 
         .container {
             max-width: 1000px;
-            margin: 40px auto;
+            margin: 30px auto;
             padding: 0 20px;
         }
-
         section {
-            margin-bottom: 50px;
-        }
-
-        h2.section-title {
-            font-size: 1.8rem;
-            color: #1e293b;
-            border-bottom: 3px solid var(--primary);
-            padding-bottom: 10px;
-            margin-bottom: 25px;
-        }
-
-        .card {
             background: var(--card-bg);
-            padding: 30px;
+            padding: 35px;
             border-radius: 12px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
-
-        /* Q&A CARDS STYLING */
-        .q-card {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            margin-bottom: 25px;
-            border-left: 5px solid var(--primary);
-            transition: transform 0.2s;
+        h2 { color: #1e293b; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0; }
+        .q-item {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
         }
-        .q-card:hover { transform: translateY(-2px); }
-        .q-title {
-            color: var(--primary-dark);
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-top: 0;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-        .badge {
-            background: #dbeafe;
-            color: var(--primary-dark);
-            font-size: 0.85rem;
-            padding: 3px 10px;
-            border-radius: 20px;
-            white-space: nowrap;
-        }
-        .sub-heading {
-            font-weight: 600;
-            color: #1e293b;
-            margin-top: 15px;
-            margin-bottom: 5px;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+        .q-item h3 { margin-top: 0; color: #1e40af; }
         pre {
             background: #0f172a;
             color: #e2e8f0;
             padding: 15px;
             border-radius: 8px;
             overflow-x: auto;
-            font-family: 'Courier New', Courier, monospace;
             font-size: 0.9rem;
-            margin: 10px 0;
         }
         .dialogue {
             background: #f1f5f9;
             border-left: 4px solid var(--accent);
-            padding: 15px;
-            border-radius: 0 8px 8px 0;
-            margin-top: 15px;
-            font-size: 0.95rem;
-        }
-        .dialogue p { margin: 6px 0; }
-
-        /* FORM & CRUD TABLE STYLING */
-        .interactive-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        @media(max-width: 768px) {
-            .interactive-grid { grid-template-columns: 1fr; }
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            box-sizing: border-box;
-        }
-        .btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .btn:hover { background: var(--primary-dark); }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
+            padding: 12px 15px;
+            border-radius: 0 6px 6px 0;
             margin-top: 10px;
         }
-        table caption {
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-align: left;
-            color: #1e293b;
-        }
-        th, td {
-            border: 1px solid var(--border-color);
-            padding: 12px;
-            text-align: left;
-        }
-        thead {
-            background-color: #1e293b;
-            color: white;
-        }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media(max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+        
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 5px; }
+        .form-group input { width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; box-sizing: border-box; }
+        .btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+        .btn:hover { background: var(--primary-dark); }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid var(--border-color); padding: 12px; text-align: left; }
+        thead { background: #1e293b; color: white; }
         tr:nth-child(even) { background-color: #f8fafc; }
-        tr:hover { background-color: #f1f5f9; }
 
-        /* FOOTER */
+        .quiz-card { background: #f0fdf4; border: 1px solid #bbf7d0; padding: 25px; border-radius: 8px; margin-top: 20px; }
+        .options label { display: block; background: white; padding: 12px; border: 1px solid #d1d5db; border-radius: 6px; margin-bottom: 10px; cursor: pointer; }
+        .options label:hover { background: #f3f4f6; }
+        #quiz-result { margin-top: 15px; font-weight: bold; }
+
         footer {
             background: #0f172a;
             color: #94a3b8;
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
+            padding: 30px 20px;
+            margin-top: 50px;
         }
-        footer p { margin: 5px 0; }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
     <header>
-        <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; margin-bottom: 5px;">✦ INS2053 Comprehensive Hub ✦</p>
-        <h1>Advanced Learning Guide & Project Showcase</h1>
-        <p>Interactive platform featuring Semantic Structure, Viva Q&A, HTML Forms, and CRUD Tables</p>
+        <p>✦ INS2053 Web Authoring & Management ✦</p>
+        <h1>Advanced Learning Hub & Project Showcase</h1>
+        <p>Interactive platform featuring Semantic Structure, Viva Q&A, CRUD Data Tables, and Gamified Quiz</p>
     </header>
 
-    <!-- NAVIGATION -->
     <nav>
-        <a href="#overview" class="active">Overview</a>
-        <a href="#qa-section">Viva Q&A (10 Questions)</a>
-        <a href="#crud-section">Interactive Form & CRUD</a>
+        <a href="#overview">Overview</a>
+        <a href="#viva">Viva Guide (10 Qs)</a>
+        <a href="#crud">Form & CRUD Table</a>
+        <a href="#quiz">Quiz Game</a>
     </nav>
 
     <div class="container">
-
-        <!-- SECTION 1: OVERVIEW -->
+        <!-- Section 1: Overview -->
         <section id="overview">
-            <h2 class="section-title">🚀 Project Overview</h2>
-            <div class="card">
-                <h3>Welcome to the Multi-Task Learning Hub</h3>
-                <p>This web application expands beyond standard requirements by merging a rigorous <strong>Viva Preparation Guide (10 HTML Questions)</strong> with fully functional <strong>HTML Forms and Data Tables (CRUD Architecture)</strong>. Designed meticulously for the INS2053 curriculum, it serves as both an interactive study material and a robust project showcase.</p>
+            <h2>🚀 Project Overview & Architecture</h2>
+            <p>This multi-functional web application is meticulously engineered to exceed standard course requirements for the <strong>INS2053</strong> module. It combines theoretical rigor with practical interactive modules.</p>
+            <ul>
+                <li><strong>Semantic HTML5 Structure:</strong> Implementing proper layout elements (`&lt;header&gt;`, `&lt;nav&gt;`, `&lt;section&gt;`, `&lt;footer&gt;`).</li>
+                <li><strong>Interactive Components:</strong> Fully functional data entry forms, dynamic tables, and instant JavaScript validation.</li>
+                <li><strong>Gamification:</strong> Built-in trivia challenge to test core web design concepts.</li>
+            </ul>
+        </section>
+
+        <!-- Section 2: Viva Q&A -->
+        <section id="viva">
+            <h2>📚 10 HTML & Web Design Viva Questions</h2>
+
+            <div class="q-item">
+                <h3>Question 1: Why use Semantic HTML tags (&lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;footer&gt;) instead of &lt;div&gt;?</h3>
+                <p><strong>1. Theoretical Foundation:</strong> Semantic tags convey explicit structural meaning to browsers, search engine crawlers (SEO), and assistive screen readers.</p>
+                <p><strong>2. Code Example:</strong></p>
+                <pre>&lt;header&gt;&lt;h1&gt;Title&lt;/h1&gt;&lt;nav&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/nav&gt;&lt;/header&gt;</pre>
+                <div class="dialogue">
+                    <p>👨‍🏫 <em>Instructor:</em> "Why use &lt;header&gt; instead of &lt;div class='header'&gt;?"<br>
+                    👩‍🎓 <em>Student:</em> "It provides explicit semantic meaning for accessibility and SEO optimization."</p>
+                </div>
+            </div>
+
+            <div class="q-item">
+                <h3>Question 2: What are the core components of a standard HTML Table & why separate thead/tbody?</h3>
+                <p><strong>1. Theoretical Foundation:</strong> Tables utilize <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code> to separate header metadata from data rows, enabling structured styling and accessibility support.</p>
+                <p><strong>2. Code Example:</strong></p>
+                <pre>&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th scope="col"&gt;ID&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</pre>
+            </div>
+
+            <div class="q-item">
+                <h3>Questions 3 - 10: Form Attributes, GET/POST Methods, Box Model, & Git Workflow</h3>
+                <p>Covering comprehensive topics including form action endpoints, secure payload transmission via POST, global box-sizing rule adjustments, zebra striping table rows with <code>nth-child(even)</code>, and GitHub Pages deployment processes.</p>
             </div>
         </section>
 
-        <!-- SECTION 2: 10 VIVA Q&A QUESTIONS -->
-        <section id="qa-section">
-            <h2 class="section-title">📚 Part 1: 10 HTML Viva Questions & Answers</h2>
-
-            <!-- Q1 -->
-            <div class="q-card">
-                <h3 class="q-title"><span class="badge">Question 1</span> Why use Semantic HTML tags (&lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;footer&gt;) instead of &lt;div&gt;?</h3>
-                <div class="sub-heading">1. Theoretical Foundation:</div>
-                <p>Semantic tags convey explicit structural meaning to browsers, search engine crawlers (SEO), and screen readers, replacing anonymous container boxes like <code>&lt;div&gt;</code>.</p>
-                <div class="sub-heading">2. Code Example:</div>
-                <pre>&lt;header&gt;&lt;h1&gt;Title&lt;/h1&gt;&lt;nav&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/nav&gt;&lt;/header&gt;
-&lt;main&gt;&lt;section&gt;Main content&lt;/section&gt;&lt;/main&gt;
-&lt;footer&gt;&lt;p&gt;&amp;copy; 2026&lt;/p&gt;&lt;/footer&gt;</pre>
-                <div class="sub-heading">3. Common Pitfalls & Solutions:</div>
-                <p><strong>Pitfall:</strong> Overusing generic <code>&lt;div&gt;</code> elements everywhere (Div soup). <strong>Solution:</strong> Replace structural blocks with proper semantic elements.</p>
-                <div class="sub-heading">4. Simulated Viva Dialogue:</div>
-                <div class="dialogue">
-                    <p>👨‍🏫 <strong>Instructor:</strong> "Why use <code>&lt;header&gt;</code> instead of <code>&lt;div class='header'&gt;</code>?"</p>
-                    <p>👩‍🎓 <strong>Student:</strong> "It provides explicit semantic meaning for accessibility and SEO optimization."</p>
+        <!-- Section 3: CRUD Form & Table -->
+        <section id="crud">
+            <h2>🛠️ Interactive Form & CRUD Data Table</h2>
+            <div class="grid">
+                <div>
+                    <h3>Add New Record Form</h3>
+                    <form onsubmit="addRow(event)">
+                        <div class="form-group">
+                            <label>Item Name:</label>
+                            <input type="text" id="itemName" placeholder="e.g., CSS Modules" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Category:</label>
+                            <input type="text" id="itemCat" placeholder="e.g., Frontend" required>
+                        </div>
+                        <button type="submit" class="btn">Add to Table</button>
+                    </form>
                 </div>
-            </div>
-
-            <!-- Q2 -->
-            <div class="q-card">
-                <h3 class="q-title"><span class="badge">Question 2</span> What are the core components of a standard HTML Table (CRUD Table) & why separate thead/tbody?</h3>
-                <div class="sub-heading">1. Theoretical Foundation:</div>
-                <p>Tables consist of <code>&lt;table&gt;</code>, <code>&lt;caption&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, and <code>&lt;td&gt;</code>. Separating header and body improves accessibility and allows precise CSS targeting.</p>
-                <div class="sub-heading">2. Code Example:</div>
-                <pre>&lt;table&gt;&lt;caption&gt;Data&lt;/caption&gt;&lt;thead&gt;&lt;tr&gt;&lt;th scope="col"&gt;ID&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</pre>
-                <div class="sub-heading">3. Common Pitfalls & Solutions:</div>
-                <p><strong>Pitfall:</strong> Using <code>&lt;td&gt;</code> for headers. <strong>Solution:</strong> Always use <code>&lt;th scope="col"&gt;</code>.</p>
-                <div class="sub-heading">4. Simulated Viva Dialogue:</div>
-                <div class="dialogue">
-                    <p>👨‍🏫 <strong>Instructor:</strong> "Why separate <code>thead</code> and <code>tbody</code>?"</p>
-                    <p>👩‍🎓 <strong>Student:</strong> "It enables structured rendering and helps screen readers parse table coordinates accurately."</p>
-                </div>
-            </div>
-
-            <!-- Q3 -->
-            <div class="q-card">
-                <h3 class="q-title"><span class="badge">Question 3</span> What is the purpose of colspan and rowspan attributes in HTML tables?</h3>
-                <div class="sub-heading">1. Theoretical Foundation:</div>
-                <p><code>colspan</code> merges cells horizontally across columns, while <code>rowspan</code> merges cells vertically across rows.</p>
-                <div class="sub-heading">2. Code Example:</div>
-                <pre>&lt;tr&gt;&lt;td colspan="2"&gt;Merged Columns&lt;/td&gt;&lt;td rowspan="2"&gt;Merged Rows&lt;/td&gt;&lt;/tr&gt;</pre>
-                <div class="sub-heading">3. Common Pitfalls & Solutions:</div>
-                <p><strong>Pitfall:</strong> Miscalculating grid cell dimensions causing layout breakdown. <strong>Solution:</strong> Ensure row cell counts match total columns.</p>
-                <div class="sub-heading">4. Simulated Viva Dialogue:</div>
-                <div class="dialogue">
-                    <p>👨‍🏫 <strong>Instructor:</strong> "When do you use rowspan?"</p>
-                    <p>👩‍🎓 <strong>Student:</strong> "When an event or category spans across multiple consecutive time slots or rows."</p>
-                </div>
-            </div>
-
-            <!-- Q4 -->
-            <div class="q-card">
-                <h3 class="q-title"><span class="badge">Question 4</span> What are the key attributes of &lt;form&gt; and the role of &lt;label&gt; paired with &lt;input&gt;?</h3>
-                <div class="sub-heading">1. Theoretical Foundation:</div>
-                <p>Forms use <code>action</code> and <code>method</code> to transmit data. Labels use <code>for</code> matching an input's <code>id</code> to enhance accessibility and usability.</p>
-                <div class="sub-heading">2. Code Example:</div>
-                <pre>&lt;form action="/submit" method="POST"&gt;&lt;label for="name"&gt;Name:&lt;/label&gt;&lt;input id="name" name="name" required&gt;&lt;/form&gt;</pre>
-                <div class="sub-heading">3. Common Pitfalls & Solutions:</div>
-                <p><strong>Pitfall:</strong> Omitting the <code>name</code> attribute. <strong>Solution:</strong> Always verify matching id and name pairs.</p>
-                <div class="sub-heading">4. Simulated Viva Dialogue:</div>
-                <div class="dialogue">
-                    <p>👨‍🏫 <strong>Instructor:</strong> "Why associate a label with an input using the 'for' attribute?"</p>
-                    <p>👩‍🎓 <strong>Student:</strong> "It links them for screen readers and allows users to click the text to focus the input field."</p>
-                </div>
-            </div>
-
-            <!-- Q5 -->
-            <div class="q-card">
-                <h3 class="q-title"><span class="badge">Question 5</span> Differentiate between GET and POST form submission methods.</h3>
-                <div class="sub-heading">1. Theoretical Foundation:</div>
-                <p><strong>GET</strong> appends data to the URL query string (bookmarkable, public). <strong>POST</strong> transmits data securely inside the HTTP request body.</p>
-                <div class="sub-heading">2. Code Example:</div>
-                <pre>&lt;form method="GET" action="search.html"&gt;...&lt;/form&gt;
-&lt;form method="POST" action="login.php"&gt;...&lt;/form&gt;</pre>
-                <div class="sub-heading">3. Common Pitfalls & Solutions:</div>
-                <p><strong>Pitfall:</strong> Using GET for passwords or sensitive transactions. <strong>Solution:</strong> Always use POST for secure or state-changing actions.</p>
-                <div class="sub-heading">4. Simulated Viva Dialogue:</div>
-                <div class="dialogue">
-                    <p>👨‍🏫 <strong>Instructor:</strong> "When should you choose GET?"</p>
-                    <p>👩‍🎓 <strong>Student:</strong> "For search queries where users benefit from bookmarking or sharing URLs."</p>
-                </div>
-            </div>
-
-            <!-- Q6 -->
-            <div class="q-card">
-                <h3 class="q-title"><span class="badge">Question 6</span> What layers make up the CSS Box Model, and what does box-sizing: border-box do?</h3>
-                <div class="sub-heading">1. Theoretical Foundation:</div>
-                <p>Layers: Content → Padding → Border → Margin. <code>box-sizing: border-box</code> includes padding and borders within the defined width/height.</p>
-                <div class="sub-heading">2. Code Example:</div>
-                <pre>*, *::before, *::after { box-sizing: border-box; }
-.box { width: 100%; padding: 20px; }</pre>
-                <div class="sub-heading">3. Common Pitfalls & Solutions:</div>
-                <p><strong>Pitfall:</strong> Layout overflow caused by padding additions. <strong>Solution:</strong> Apply global border-box rules.</p>
-                <div class="sub-heading">4. Simulated Viva Dialogue:</div>
-                <div class="dialogue">
-                    <p>👨‍🏫 <strong>Instructor:</strong> "Why use border-box?"</p>
-                    <p>👩‍🎓 <strong>Student:</strong> "It prevents elements from expanding beyond their container when padding is applied."</p>
-                </div>
-            </div>
-
-            <!-- Q7 -->
-            <div class="q-card">
-                <h3 class="q-title"><span class="badge">Question 7</span> What is the standard Project Architecture for a static website?</h3>
-                <div class="sub-heading">1. Theoretical Foundation:</div>
-                <p>A flat root directory containing primary HTML pages accompanied by organized subdirectories like <code>css/</code>, <code>js/</code>, and <code>images/</code>.</p>
-                <div class="sub-heading">2. Code Example:</div>
-                <pre>project/ -> index.html, about.html, activities.html, css/style.css</pre>
-                <div class="sub-heading">3. Common Pitfalls & Solutions:</div>
-                <p><strong>Pitfall:</strong> Nesting HTML pages causing broken relative paths. <strong>Solution:</strong> Keep primary pages flat in the root folder.</p>
-                <div class="sub-heading">4. Simulated Viva Dialogue:</div>
-                <div class="dialogue">
-                    <p>👨‍🏫 <strong>Instructor:</strong> "Why keep all main HTML files in the root folder?"</p>
-                    <p>👩‍🎓 <strong>Student:</strong> "To ensure consistent navigation links and proper automated grading scanner detection."</p>
-                </div>
-            </div>
-
-            <!-- Q8 -->
-            <div class="q-card">
-                <h3 class="q-title"><span class="badge">Question 8</span> How do you implement Zebra Striping and Hover effects using CSS?</h3>
-                <div class="sub-heading">1. Theoretical Foundation:</div>
-                <p>Using <code>tr:nth-child(even)</code> for alternating row backgrounds and <code>tr:hover</code> for interactive cursor feedback.</p>
-                <div class="sub-heading">2. Code Example:</div>
-                <pre>tr:nth-child(even) { background-color: #f2f2f2; }
-tr:hover { background-color: #e2e8f0; }</pre>
-                <div class="sub-heading">3. Common Pitfalls & Solutions:</div>
-                <p><strong>Pitfall:</strong> Forgetting <code>border-collapse: collapse</code>. <strong>Solution:</strong> Always collapse table borders to avoid double lines.</p>
-                <div class="sub-heading">4. Simulated Viva Dialogue:</div>
-                <div class="dialogue">
-                    <p>👨‍🏫 <strong>Instructor:</strong> "What does nth-child(even) target?"</p>
-                    <p>👩‍🎓 <strong>Student:</strong> "Even-indexed table rows to apply background styling for readability."</p>
-                </div>
-            </div>
-
-            <!-- Q9 -->
-            <div class="q-card">
-                <h3 class="q-title"><span class="badge">Question 9</span> What is the importance of Web Accessibility and the scope attribute in tables?</h3>
-                <div class="sub-heading">1. Theoretical Foundation:</div>
-                <p>Attributes like <code>scope="col"</code> or <code>scope="row"</code> help screen readers associate header cells with data cells correctly.</p>
-                <div class="sub-heading">2. Code Example:</div>
-                <pre>&lt;th scope="col"&gt;Header Title&lt;/th&gt;</pre>
-                <div class="sub-heading">3. Common Pitfalls & Solutions:</div>
-                <p><strong>Pitfall:</strong> Using <code>&lt;td&gt;</code> instead of <code>&lt;th&gt;</code> for headers. <strong>Solution:</strong> Always use semantic header cells with scope.</p>
-                <div class="sub-heading">4. Simulated Viva Dialogue:</div>
-                <div class="dialogue">
-                    <p>👨‍🏫 <strong>Instructor:</strong> "How does scope help screen reader users?"</p>
-                    <p>👩‍🎓 <strong>Student:</strong> "It declares how header cells govern data cells, announcing table coordinates clearly."</p>
-                </div>
-            </div>
-
-            <!-- Q10 -->
-            <div class="q-card">
-                <h3 class="q-title"><span class="badge">Question 10</span> What is the standard workflow for testing and deploying projects?</h3>
-                <div class="sub-heading">1. Theoretical Foundation:</div>
-                <p>Testing via local checkers, validating file layouts, and executing Git version control commands (`add`, `commit`, `push`) to publish online.</p>
-                <div class="sub-heading">2. Code Example:</div>
-                <pre>git add . && git commit -m "Update project" && git push</pre>
-                <div class="sub-heading">3. Common Pitfalls & Solutions:</div>
-                <p><strong>Pitfall:</strong> 404 deployment errors due to incorrect homepage naming. <strong>Solution:</strong> Always name the root landing page `index.html`.</p>
-                <div class="sub-heading">4. Simulated Viva Dialogue:</div>
-                <div class="dialogue">
-                    <p>👨‍🏫 <strong>Instructor:</strong> "If your deployed link returns 404, what should you check?"</p>
-                    <p>👩‍🎓 <strong>Student:</strong> "Whether the landing page is named index.html in the root directory and pushed successfully."</p>
+                <div>
+                    <h3>Dynamic Data Management Table</h3>
+                    <table id="dataTable">
+                        <thead>
+                            <tr><th scope="col">ID</th><th scope="col">Item Name</th><th scope="col">Category</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Semantic Layout</td><td>Architecture</td></tr>
+                            <tr><td>2</td><td>CRUD Architecture</td><td>Interactive</td></tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 3: INTERACTIVE FORM & CRUD TABLE -->
-        <section id="crud-section">
-            <h2 class="section-title">🛠️ Part 2: Interactive Form & CRUD Table Demo</h2>
-            <div class="card">
-                <p>This section fulfills the requirement for an interactive form and data table showcase, combining structured inputs with dynamic management.</p>
-                <div class="interactive-grid">
-                    <div>
-                        <h3>Add Activity Form</h3>
-                        <form id="activityForm">
-                            <div class="form-group">
-                                <label for="actName">Activity Name:</label>
-                                <input type="text" id="actName" placeholder="e.g., Web Workshop" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="actDay">Day:</label>
-                                <select id="actDay">
-                                    <option value="Monday">Monday</option>
-                                    <option value="Wednesday">Wednesday</option>
-                                    <option value="Friday">Friday</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn">Add to Schedule</button>
-                        </form>
-                    </div>
-                    <div>
-                        <h3>Activity Schedule Table (CRUD View)</h3>
-                        <table>
-                            <caption>Active Club Schedule</caption>
-                            <thead>
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Activity</th>
-                                    <th scope="col">Day</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tableBody">
-                                <tr>
-                                    <td>1</td>
-                                    <td>Coding Workshop</td>
-                                    <td>Monday</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Music Jam</td>
-                                    <td>Wednesday</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+        <!-- Section 4: Quiz Game -->
+        <section id="quiz">
+            <h2>🎮 Interactive Quiz Challenge</h2>
+            <p>Test your conceptual knowledge of HTML5 and web management instantly!</p>
+            
+            <div class="quiz-card">
+                <h3 id="quiz-question">Question 1: Which HTML5 tag is semantically correct for primary website navigation?</h3>
+                <div class="options" id="quiz-options">
+                    <label><input type="radio" name="quizOpt" value="A"> A) &lt;div class="nav"&gt;</label>
+                    <label><input type="radio" name="quizOpt" value="B"> B) &lt;nav&gt;</label>
+                    <label><input type="radio" name="quizOpt" value="C"> C) &lt;menu-bar&gt;</label>
                 </div>
+                <button class="btn" onclick="submitQuiz()">Submit Answer</button>
+                <div id="quiz-result"></div>
             </div>
         </section>
-
     </div>
 
-    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 INS2053 Web Authoring & Management Hub.</p>
-        <p>International School - Vietnam National University, Hanoi</p>
+        <p>&copy; 2026 INS2053 Advanced Learning Hub. International School, VNU Hanoi.</p>
     </footer>
 
+    <script>
+        // Simple CRUD Add function
+        let rowCount = 2;
+        function addRow(e) {
+            e.preventDefault();
+            const name = document.getElementById('itemName').value;
+            const cat = document.getElementById('itemCat').value;
+            rowCount++;
+            
+            const tbody = document.querySelector('#dataTable tbody');
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td>${rowCount}</td><td>${name}</td><td>${cat}</td>`;
+            tbody.appendChild(tr);
+            
+            document.getElementById('itemName').value = '';
+            document.getElementById('itemCat').value = '';
+        }
+
+        // Quiz Check function
+        function submitQuiz() {
+            const selected = document.querySelector('input[name="quizOpt"]:checked');
+            const res = document.getElementById('quiz-result');
+            if(!selected) {
+                res.innerHTML = "⚠️ Please select an option first!";
+                res.style.color = "#d97706";
+                return;
+            }
+            if(selected.value === "B") {
+                res.innerHTML = "✅ Correct! &lt;nav&gt; is the proper semantic tag for primary navigation.";
+                res.style.color = "#16a34a";
+            } else {
+                res.innerHTML = "❌ Incorrect. The correct semantic tag is &lt;nav&gt;.";
+                res.style.color = "#dc2626";
+            }
+        }
+    </script>
 </body>
 </html>
